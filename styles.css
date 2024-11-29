@@ -1,0 +1,435 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  /* Size Var */
+  --nav-height: 70px;
+
+  /* Color Var */
+  --nav-color: rgba(17, 24, 39, 0.9);
+  --logo-color: rgb(59, 130, 246);
+  --button-hover: rgb(37, 99, 235);
+  --card-color: rgb(31, 41, 55);
+  --white: rgb(243, 244, 246);
+  --grey: rgba(209, 213, 219, 0.8);
+  --text-footer: rgb(156, 163, 175);
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  height: auto;
+  background: linear-gradient(-45deg, #3a911c, #297861, #175fa5, #174ba8, #313697, #3e2b8e, #4a2085, #36229b, #0f25c7, #0001ff), no-repeat;
+  background-size: 600% 600%;
+  animation: gradientAnimation 60s linear infinite;
+}
+
+/* Components CSS */
+.overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(20px);
+  z-index: -1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h2 {
+  color: var(--white);
+  font-size: 3.6rem;
+}
+
+h3 {
+  font-size: 2rem;
+  color: var(--white);
+}
+
+p {
+  color: var(--grey);
+  font-size: 1.8rem;
+}
+
+/* Navbar CSS */
+nav {
+  padding: 16px 32px;
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--nav-color);
+}
+
+nav .logo {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--logo-color);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+nav ul a {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--white);
+  text-decoration: none;
+  padding: 8px 16px;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+nav ul a:hover {
+  background-color: rgb(30, 41, 59);
+}
+
+/* Hero CSS */
+.hero {
+  height: calc(100vh - var(--nav-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.hero h1 {
+  font-size: 4.8rem;
+  color: var(--white);
+}
+
+.hero span {
+  color: var(--grey);
+  font-size: 24px;
+}
+
+.hero a {
+  margin-top: 14px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: var(--logo-color);
+  font-weight: 500;
+  font-size: 1.4rem;
+  height: 40px;
+  align-content: center;
+  transition: 0.3s;
+}
+
+.hero a:hover {
+  background-color: rgba(59, 130, 246, 0.9);
+}
+
+/* About CSS */
+.about {
+  min-height: 100vh;
+  display: grid;
+  justify-items: end;
+  align-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin: 0 auto;
+  gap: 32px;
+  padding: 64px 16px;
+  max-width: 1280px;
+}
+
+.user_foto {
+  border-radius: 100%;
+  min-width: 256px;
+  height: 256px;
+  border: 4px solid var(--nav-color);
+  overflow: hidden;
+  background-image: url("https://vlad-costin-developer.netlify.app/images/about1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 40%;
+}
+
+.about-text p {
+  margin-top: 2.4rem;
+}
+
+.about-text .button {
+  margin-top: 40px;
+  width: fit-content;
+  padding: 8px 16px;
+  background-color: var(--logo-color);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 1.4rem;
+  transition: 0.3s;
+}
+
+.about-text a:hover > .button {
+  background-color: var(--button-hover);
+}
+
+/* Project CSS */
+.projects {
+  min-height: calc(100vh - var(--nav-height));
+  margin: 0 auto;
+  padding: 64px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.projects-card-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.project-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  background-color: var(--card-color);
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.project-tile:hover {
+  transform: scale(1.1);
+}
+
+.project-tile-img {
+  height: 100%;
+}
+
+.project-tile-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-tile-title {
+  margin: 20px 10px;
+}
+
+.projects .button {
+  display: inline-flex;
+  background-color: var(--nav-color);
+  border-radius: 8px;
+  border: none;
+  padding: 16px 32px;
+  color: var(--logo-color);
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.button span {
+  margin-left: 6px;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+.button:hover > span {
+  transform: translateX(2px);
+}
+
+/* Contact CSS */
+.contact {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 16px;
+}
+
+form {
+  max-width: 448px;
+  width: 100%;
+  background-color: var(--card-color);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 16px 64px;
+}
+
+form div:not(:first-child) {
+  margin-top: 32px;
+}
+
+form div label {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--white);
+}
+
+form div input,
+textarea {
+  width: 100%;
+  border: 0;
+  margin-top: 8px;
+  border-radius: 6px;
+  color: var(--white);
+  font-size: 1.4rem;
+  resize: none;
+  background-color: rgb(2, 8, 23);
+  padding: 8px 12px;
+}
+
+form input {
+  margin-top: 32px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  width: 100%;
+  border: 0;
+  background-color: var(--logo-color);
+  font-weight: 500;
+  font-size: 1.4rem;
+  transition: 0.3s;
+}
+
+form input:hover {
+  background-color: var(--button-hover);
+}
+
+.contact-ico a,
+.footer-ico a {
+  margin: 0 24px;
+}
+
+.contact-ico svg {
+  width: 34px;
+  height: 34px;
+  stroke: var(--white);
+  transition: 0.3s;
+}
+
+.contact-ico svg:hover,
+.footer-ico svg:hover {
+  stroke: var(--button-hover);
+}
+
+.contact-ico a:nth-child(3) > svg {
+  fill: var(--white);
+}
+
+.contact-ico a:nth-child(3):hover > svg,
+.footer-ico a:nth-child(3):hover > svg {
+  fill: var(--button-hover);
+}
+
+/* Footer CSS */
+footer {
+  width: 100%;
+  text-align: center;
+  background-color: var(--card-color);
+  border-top: 0.8px solid rgb(55, 65, 81);
+  padding: 48px 16px;
+  color: var(--text-footer);
+  font-size: 1.6rem;
+}
+
+footer div:not(:first-child) {
+  margin-top: 32px;
+}
+
+.footer-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 8px 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-nav ul li {
+  transition: 0.3s;
+}
+
+.footer-nav ul li:hover {
+  color: var(--button-hover);
+}
+
+.footer-ico svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--white);
+  transition: 0.3s;
+}
+
+.footer-ico svg {
+  stroke: var(--text-footer);
+}
+
+.footer-ico a:nth-child(3) > svg {
+  fill: var(--text-footer);
+}
+
+/* Animations CSS */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  34% {
+    background-position: 50% 100%;
+  }
+  68% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+/* Media CSS */
+@media only screen and (max-width: 746px) {
+  .about {
+    justify-items: center;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  nav {
+    padding: 16px;
+  }
+
+  nav ul {
+    gap: 4px;
+  }
+
+  nav ul a {
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+
+  .about,
+  .projects-card-container{
+    grid-template-columns: auto
+  }
+}
